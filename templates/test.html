@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Five Personality Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #000000;
+        }
+        h2 {
+            margin-bottom: 20px;
+
+        }
+        p {
+            text-align: center;
+            color: #000000;
+        }
+        .progress-bar {
+            width: 100%;
+            background: #e4e4e4;
+            border-radius: 10px;
+
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-bar div {
+            width: 0;
+            height: 10px;
+            background: #5a5aaf;
+            transition: width 0.3s ease;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .scale {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .scale label {
+            flex: 1;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .scale input {
+            margin: 0 auto;
+        }
+        .btn-container {
+            text-align: left;
+            margin-top: 20px;
+        }
+        button {
+            background: #5a5aaf;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background: #4a4a9a;
+        }
+        a {
+            color: #5a5aaf;
+            text-decoration: none;
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section>
+        <h1>Big Five Personality Test</h1>
+        <p>Take this short test to discover your personality profile. It only takes 3–5 minutes!</p>
+    </section>
+
+        <form id="personality-form" action="{{ url_for('result') }}" method="POST">
+            <div class="question">
+                <label for="EXT1">1. I see myself as someone who is the life of the party.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT1" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT1" value="2"> Disagree</label>
+                    <label><input type="radio" name="EXT1" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT1" value="4"> Agree</label>
+                    <label><input type="radio" name="EXT1" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR1">2. I see myself as someone who feels little concern for others.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR1" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR1" value="4"> Disagree</label>
+                    <label><input type="radio" name="AGR1" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR1" value="2"> Agree</label>
+                    <label><input type="radio" name="AGR1" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN1">3. I see myself as someone who is always prepared.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN1" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN1" value="2"> Disagree</label>
+                    <label><input type="radio" name="CSN1" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN1" value="4"> Agree</label>
+                    <label><input type="radio" name="CSN1" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST1">4. I see myself as someone who gets stressed out easily.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST1" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST1" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST1" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST1" value="4"> Agree</label>
+                    <label><input type="radio" name="EST1" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN1">5. I see myself as someone who has a rich vocabulary.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN1" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN1" value="2"> Disagree</label>
+                    <label><input type="radio" name="OPN1" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN1" value="4"> Agree</label>
+                    <label><input type="radio" name="OPN1" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT2">6. I see myself as someone who don't talk a lot.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT2" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT2" value="2"> Disagree</label>
+                    <label><input type="radio" name="EXT2" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT2" value="4"> Agree</label>
+                    <label><input type="radio" name="EXT2" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR2">7. I see myself as someone who is interested in people.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR2" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR2" value="2"> Disagree</label>
+                    <label><input type="radio" name="AGR2" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR2" value="4"> Agree</label>
+                    <label><input type="radio" name="AGR2" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN2">8. I see myself as someone who leaves his belongings around.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN2" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN2" value="2"> Disagree</label>
+                    <label><input type="radio" name="CSN2" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN2" value="4"> Agree</label>
+                    <label><input type="radio" name="CSN2" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST2">9. I see myself as someone who is relaxed most of the time.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST2" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST2" value="4"> Disagree</label>
+                    <label><input type="radio" name="EST2" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST2" value="2"> Agree</label>
+                    <label><input type="radio" name="EST2" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN2">10. I see myself as someone who has difficulty understanding abstract ideas.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN2" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN2" value="4"> Disagree</label>
+                    <label><input type="radio" name="OPN2" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN2" value="2"> Agree</label>
+                    <label><input type="radio" name="OPN2" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT3">11. I see myself as someone who feels comfortable around people.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT3" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT3" value="2"> Disagree</label>
+                    <label><input type="radio" name="EXT3" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT3" value="4"> Agree</label>
+                    <label><input type="radio" name="EXT3" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR3">12. I insult people.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR3" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR3" value="4"> Disagree</label>
+                    <label><input type="radio" name="AGR3" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR3" value="2"> Agree</label>
+                    <label><input type="radio" name="AGR3" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN3">13. I see myself as someone who pays attention to details</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN3" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN3" value="2"> Disagree</label>
+                    <label><input type="radio" name="CSN3" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN3" value="4"> Agree</label>
+                    <label><input type="radio" name="CSN3" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST3">14. I see myself as someone who worries about things.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST3" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST3" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST3" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST3" value="4"> Agree</label>
+                    <label><input type="radio" name="EST3" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN3">15. I see myself as someone who has a vivid imagination.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN3" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN3" value="2"> Disagree</label>
+                    <label><input type="radio" name="OPN3" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN3" value="4"> Agree</label>
+                    <label><input type="radio" name="OPN3" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT4">16. I see myself as someone who keeps in the background.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT4" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT4" value="4"> Disagree</label>
+                    <label><input type="radio" name="EXT4" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT4" value="2"> Agree</label>
+                    <label><input type="radio" name="EXT4" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR4">17. I see myself as someone who sympathizes with other's feelings.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR4" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR4" value="2"> Disagree</label>
+                    <label><input type="radio" name="AGR4" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR4" value="4"> Agree</label>
+                    <label><input type="radio" name="AGR4" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN4">18. I see myself as someone who makes a mess of things.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN4" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN4" value="4"> Disagree</label>
+                    <label><input type="radio" name="CSN4" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN4" value="2"> Agree</label>
+                    <label><input type="radio" name="CSN4" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST4">19. I see myself as someone who seldoms feel blue.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST4" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST4" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST4" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST4" value="4"> Agree</label>
+                    <label><input type="radio" name="EST4" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN4">20. I see myself as someone who is not interested in abstract ideas.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN4" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN4" value="4"> Disagree</label>
+                    <label><input type="radio" name="OPN4" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN4" value="2"> Agree</label>
+                    <label><input type="radio" name="OPN4" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT5">21. I see myself as someone who starts conversations.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT5" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT5" value="2"> Disagree</label>
+                    <label><input type="radio" name="EXT5" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT5" value="4"> Agree</label>
+                    <label><input type="radio" name="EXT5" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR5">22. I see myself as someone who is not interested in other people's problem.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR5" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR5" value="4"> Disagree</label>
+                    <label><input type="radio" name="AGR5" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR5" value="2"> Agree</label>
+                    <label><input type="radio" name="AGR5" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN5">23. I get chores done right away.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN5" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN5" value="2"> Disagree</label>
+                    <label><input type="radio" name="CSN5" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN5" value="4"> Agree</label>
+                    <label><input type="radio" name="CSN5" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST5">24. I see myself as someone who is easily disturbed.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST5" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST5" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST5" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST5" value="4"> Agree</label>
+                    <label><input type="radio" name="EST5" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN5">25. I see myself as someone who has excellent ideas.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN5" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN5" value="2"> Disagree</label>
+                    <label><input type="radio" name="OPN5" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN5" value="4"> Agree</label>
+                    <label><input type="radio" name="OPN5" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT6">26. I see myself as someone who has little to say.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT6" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT6" value="4"> Disagree</label>
+                    <label><input type="radio" name="EXT6" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT6" value="2"> Agree</label>
+                    <label><input type="radio" name="EXT6" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR6">27. I see myself as someone who has a soft heart.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR6" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR6" value="2"> Disagree</label>
+                    <label><input type="radio" name="AGR6" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR6" value="4"> Agree</label>
+                    <label><input type="radio" name="AGR6" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN6">28. I see myself as someone who often forgets to put things back in their proper place.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN6" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN6" value="4"> Disagree</label>
+                    <label><input type="radio" name="CSN6" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN6" value="2"> Agree</label>
+                    <label><input type="radio" name="CSN6" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST6">29. I see myself as someone who gets upset easily.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST6" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST6" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST6" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST6" value="4"> Agree</label>
+                    <label><input type="radio" name="EST6" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN6">30. I see myself as someone who does not have a good imagination.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN6" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN6" value="4"> Disagree</label>
+                    <label><input type="radio" name="OPN6" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN6" value="2"> Agree</label>
+                    <label><input type="radio" name="OPN6" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT7">31. I see myself as someone who talks to a lot of different people at parties.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT7" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT7" value="2"> Disagree</label>
+                    <label><input type="radio" name="EXT7" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT7" value="4"> Agree</label>
+                    <label><input type="radio" name="EXT7" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR7">32. I see myself as someone who is not really interested in other's.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR7" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR7" value="4"> Disagree</label>
+                    <label><input type="radio" name="AGR7" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR7" value="2"> Agree</label>
+                    <label><input type="radio" name="AGR7" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN7">33. I see myself as someone who likes order.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN7" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN7" value="2"> Disagree</label>
+                    <label><input type="radio" name="CSN7" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN7" value="4"> Agree</label>
+                    <label><input type="radio" name="CSN7" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST7">34. I see myself as someone who changes his mood a lot.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST7" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST7" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST7" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST7" value="4"> Agree</label>
+                    <label><input type="radio" name="EST7" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN7">35. I see myself as someone who is quick to understand things.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN7" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN7" value="2"> Disagree</label>
+                    <label><input type="radio" name="OPN7" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN7" value="4"> Agree</label>
+                    <label><input type="radio" name="OPN7" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT8">36. I see myself as someone who doesn't like to draw attention to himself.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT8" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT8" value="4"> Disagree</label>
+                    <label><input type="radio" name="EXT8" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT8" value="2"> Agree</label>
+                    <label><input type="radio" name="EXT8" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR8">37. I see myself as someone who takes time out for others.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR8" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR8" value="2"> Disagree</label>
+                    <label><input type="radio" name="AGR8" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR8" value="4"> Agree</label>
+                    <label><input type="radio" name="AGR8" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN8">38. I see myself as someone who shirks his duties.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN8" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN8" value="4"> Disagree</label>
+                    <label><input type="radio" name="CSN8" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN8" value="2"> Agree</label>
+                    <label><input type="radio" name="CSN8" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST8">39. I see myself as someone who has frequent mood swings.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST8" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST8" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST8" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST8" value="4"> Agree</label>
+                    <label><input type="radio" name="EST8" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN8">40. I see myself as someone who uses difficult words.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN8" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN8" value="2"> Disagree</label>
+                    <label><input type="radio" name="OPN8" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN8" value="4"> Agree</label>
+                    <label><input type="radio" name="OPN8" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT9">41. I see myself as someone who doesn't mind being the center of attention.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT9" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT9" value="2"> Disagree</label>
+                    <label><input type="radio" name="EXT9" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT9" value="4"> Agree</label>
+                    <label><input type="radio" name="EXT9" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR9">42. I see myself as someone who feels other's emotions.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR9" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR9" value="2"> Disagree</label>
+                    <label><input type="radio" name="AGR9" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR9" value="4"> Agree</label>
+                    <label><input type="radio" name="AGR9" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN9">43. I see myself as someone who follows a schedule.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN9" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN9" value="2"> Disagree</label>
+                    <label><input type="radio" name="CSN9" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN9" value="4"> Agree</label>
+                    <label><input type="radio" name="CSN9" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST9">44. I see myself as someone who gets irritated easily.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST9" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST9" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST9" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST9" value="4"> Agree</label>
+                    <label><input type="radio" name="EST9" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN9">45. I see myself as someone who spends time reflecting on things.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN9" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN9" value="2"> Disagree</label>
+                    <label><input type="radio" name="OPN9" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN9" value="4"> Agree</label>
+                    <label><input type="radio" name="OPN9" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EXT10">46. I see myself as someone who is quiet around strangers.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EXT10" value="5"> Strongly Disagree</label>
+                    <label><input type="radio" name="EXT10" value="4"> Disagree</label>
+                    <label><input type="radio" name="EXT10" value="3"> Neutral</label>
+                    <label><input type="radio" name="EXT10" value="2"> Agree</label>
+                    <label><input type="radio" name="EXT10" value="1"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="AGR10">47. I see myself as someone who makes people feel at ease.</label>
+                <div class="scale">
+                    <label><input type="radio" name="AGR10" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="AGR10" value="2"> Disagree</label>
+                    <label><input type="radio" name="AGR10" value="3"> Neutral</label>
+                    <label><input type="radio" name="AGR10" value="4"> Agree</label>
+                    <label><input type="radio" name="AGR10" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="CSN10">48. I see myself as someone who is exacting in his work.</label>
+                <div class="scale">
+                    <label><input type="radio" name="CSN10" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="CSN10" value="2"> Disagree</label>
+                    <label><input type="radio" name="CSN10" value="3"> Neutral</label>
+                    <label><input type="radio" name="CSN10" value="4"> Agree</label>
+                    <label><input type="radio" name="CSN10" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="EST10">49. I see myself as someone who often feels blue.</label>
+                <div class="scale">
+                    <label><input type="radio" name="EST10" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="EST10" value="2"> Disagree</label>
+                    <label><input type="radio" name="EST10" value="3"> Neutral</label>
+                    <label><input type="radio" name="EST10" value="4"> Agree</label>
+                    <label><input type="radio" name="EST10" value="5"> Strongly Agree</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="OPN10">50. I see myself as someone who is full of ideas.</label>
+                <div class="scale">
+                    <label><input type="radio" name="OPN10" value="1"> Strongly Disagree</label>
+                    <label><input type="radio" name="OPN10" value="2"> Disagree</label>
+                    <label><input type="radio" name="OPN10" value="3"> Neutral</label>
+                    <label><input type="radio" name="OPN10" value="4"> Agree</label>
+                    <label><input type="radio" name="OPN10" value="5"> Strongly Agree</label>
+                </div>
+            </div>          
+            <button type="submit">Submit</button>          
+        </form>
+    </div>
+</section>
+<script>
+document.getElementById("personality-form").addEventListener("submit", function (event) {
+    // Get all the question blocks
+    const questions = document.querySelectorAll(".question");
+    let allAnswered = true;
+
+    // Loop through each question to check if at least one option is selected
+    questions.forEach((question) => {
+        const options = question.querySelectorAll("input[type='radio']");
+        const isAnswered = Array.from(options).some(option => option.checked);
+
+        if (!isAnswered) {
+            allAnswered = false;
+            question.classList.add("unanswered");
+        } else {
+            question.classList.remove("unanswered");
+        }
+    });
+
+    // If any question is unanswered, prevent form submission and show an alert
+    if (!allAnswered) {
+        event.preventDefault();
+        alert("Please answer all the questions before submitting.");
+    }
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+body {
+
+    height: 100vh;               /* Full viewport height */
+    margin: 0;                   /* Remove any default margin */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background: rgb(51, 55, 52);
+    color: rgb(232, 231, 217);
+    font-family: "Calibri";
+    text-align: center;    
+    
+    margin: 40px auto;
+    padding: 20px;  
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);    /* Center text in elements */
+    
+   
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+header {
+    
+    color: rgb(0, 0, 0);
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background: rgba(140, 143, 138, 0.928); /* Semi-transparent black */
+    backdrop-filter: blur(10px); /* Blur effect on the background */
+    z-index: -1; /* Ensure the overlay is behind the text */
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: serif;
+}
+
+p.a {
+    padding: 25px 50px 75px 100px;
+  }
+
+h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: serif;
+}
+
+
+
+/* Section styles for sections with titles */
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+section h1 {
+    margin-top: 0;
+    font-size: 3.5rem;
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 2px solid #009688;
+    
+    
+}
+
+section h2 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 2px solid #009688;
+}
+
+section h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 2px solid #009688;
+}
+
+
+@media (max-width: 768px) {
+    section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 10px;
+    }
+}
+
+
+section p {
+    font-size: 1.1rem;
+    font-family: Calibri;
+    color: black;
+    line-height: 1.8;
+}
+
+/* Button styles */
+button {
+    background-color: #4CAF50; /* Matching green */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+button:active {
+    background-color: #388e3c; /* Even darker green on click */
+}
+
+/* Links */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #388e3c; /* Darker green on hover */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+}
+
+
+ol.d {
+    padding-left: 20px; /* Adjust the padding of the list */
+}
+
+ol.d li {
+    list-style-type: lower-alpha; /* Keeps the alphabetical style */
+    color: rgb(49, 57, 22); /* Keep your original color */
+  
+    margin-left: 15px; /* Reduce the margin for a tighter appearance */
+    background-color: 'white'; /* A soft beige for a "cute" feel */
+    border-radius: 10px; /* Rounded edges for a softer design */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Comic Sans MS', 'Segoe UI', sans-serif; /* Adds playfulness */
+    font-size: 1.2em; /* Slightly larger font for readability */
+    transition: transform 0.2s, background-color 0.2s; /* Smooth hover effect */
+}
+
+ol.d li:hover {
+    background-color: #e6e6fa; /* Light lavender for hover */
+    transform: scale(1.05); /* Slight zoom for hover */
+    cursor: pointer;}
+
+
+ul.c  {
+        padding-left: 20px; /* Adjust the padding of the list */
+    }
+    
+ul.c li {
+        list-style-type: lower-alpha; /* Keeps the alphabetical style */
+        color: rgb(49, 57, 22); /* Keep your original color */
+        padding: 10px; /* Slightly more padding for spacing */
+        margin-left: 15px; /* Reduce the margin for a tighter appearance */
+        background-color: #f5f5dc; /* A soft beige for a "cute" feel */
+        border-radius: 10px; /* Rounded edges for a softer design */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Adds playfulness */
+        font-size: 1.2em; /* Slightly larger font for readability */
+        transition: transform 0.2s, background-color 0.2s; /* Smooth hover effect */
+    }
+    
+ul.c li:hover {
+        background-color: #e6e6fa; /* Light lavender for hover */
+        transform: scale(1.05); /* Slight zoom for hover */
+        cursor: pointer;}
+
+
+
+
+label{
+    display: inline-block;
+    padding: .25em 0;
+    
+    color: black;
+    }

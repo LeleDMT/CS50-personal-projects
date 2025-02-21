@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<section>
+<h1>Here are Your Personality Scores</h1>
+
+<p><b>Extraversion : </b> {{  ext_score }}/5 ({{ ext_percentage }}%)</p>
+    <p><b>Agreeableness : </b>{{  agr_score }}/5 ({{ agr_percentage }}%)</p>
+    <p><b>Consciousness : </b>{{  csn_score }}/5 ({{ csn_percentage }}%)</p>
+    <p><b>Neuroticism : </b>{{  est_score }}/5 ({{ est_percentage }}%)</p>
+    <p><b>Openess : </b>{{  opn_score }}/5 ({{ opn_percentage }}%)</p> 
+
+</section>    
+<section>
+    <h2>Here is an histogram of you trait, for visualization</h2>
+    <img src="data:image/png;base64,{{ img_base64 }}" alt="Big Five Personality Traits Histogram"> 
+    
+
+</section>
+<section>
+
+    <h3>According to your results, you were classified in the {{ title }}</h3>
+    <p>{{ description }}</p>
+
+    
+    <img src="{{ cluster_image_url }}" alt="Cluster Image" style="max-width: 100%; height: 450px;;">
+
+   
+
+</section>
+
+   
+
+
+
+
+<section>
+    <h1>Personality Insights</h1>
+<h2>Extraversion</h2>
+<p> You received {{ ext_percentage }}% in extraversion. {{ ext_advice }}</p>
+
+<h2>Agreeableness</h2>
+<p> You received {{ agr_percentage }}% in agreeableness. {{ agr_advice }}</p>
+
+<h2>Conscientiousness</h2>
+<p> You received {{ csn_percentage }}% in conscientiousness. {{ csn_advice }}</p>
+
+<h2>Neuroticism</h2>
+<p> You received {{ est_percentage }}% in neuroticism. {{ est_advice }}</p>
+
+<h2>Openness</h2>
+<p> You received {{ opn_percentage }}% in openness. {{ opn_advice }}</p>
+   
+
+</section>
+
+<section>
+    <a href="{{ url_for('test') }}" id="start-test-button">
+        <button>Take the Test again</button>
+    </a>
+</section>
+   
+{% endblock %}
+

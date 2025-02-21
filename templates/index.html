@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to the Big Five Personality Test Page{% endblock %}
+
+
+{% block content %}
+
+        <section>
+            <h1>Welcome to the Big Five Personality Test Page</h1>
+        </section>
+
+        <section>
+            <h2 class="center-text">How does it work?</h2>
+            <ol class="d">
+                <li>Take the Big Five test</li> 
+                <li>Receive personalized advice based on your personality traits</li> 
+                <li>Start improving your life today!</li> 
+            </ol>
+            <br><br><br><br><br><br>
+        </section>
+
+            
+       
+
+        <section>
+            <p><strong>*Disclaimer: This test isn't meant to replace a consultation with a mental health professional. If you need support, consult the appropriate resource.*</strong></p>
+
+        </section>
+        <section>
+            <h2>Ready to Start?</h2>
+            <a href="{{ url_for('test') }}" id="start-test-button">
+                <button>Take the Test</button>
+            </a>
+        </section>
+    
+    <footer>
+        <p>&copy; 2024 Personality Insights. All rights reserved.</p>
+    </footer>
+
+{% endblock %}

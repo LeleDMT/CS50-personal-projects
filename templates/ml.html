@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to the Big Five Personality Test Page{% endblock %}
+
+{% block content %}
+
+
+<section>
+    <h2>How did this website works?</h2>
+
+    <p>This website uses machine learning, a subset of artificial intelligence (AI), that uses data to train model that will predict certain outcomes</p>
+
+
+
+    <p>For this project, I used a dataset of the Big Five from Kaggle, composed of 1 million answer of the Big Five test from different user around the world.</p>
+
+
+<p>From this dataset, I trained a machine learning model with 25 000 answers (because 1 million would have been way too much for my computer) using a clustering algorithm called KMeans.</p>
+
+
+<p>This model allowed me to find pattern of personnality that emerged from the data, and regroup them in different clusters.</p>
+
+</section>
+
+<section>
+    <h3>Here's an example of Kmeans example, after a principal component analysis (PCA)</h3>
+    <img src="static/images/Kmeans.jpg" alt="Example of Kmeans" style="width: 80%; height: auto;">
+</section>
+
+
+<footer>
+    <p>&copy; 2024 Personality Insights. All rights reserved.</p>
+</footer>
+
+
+{% endblock %}
+
